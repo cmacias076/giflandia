@@ -1,3 +1,15 @@
+//Variables for colors
+
+$primary-color: rgb(24, 172, 180);
+$highlight-color: rgb(243, 15, 205);
+$text-color: #333;
+$bg-color: #f0f0f0;
+$heading-font: 'Fredericka the Great', cursive;
+$body-font: Arial, sans-serif;
+$box-bg: rgba(224, 224, 224, 0.5);
+
+//Global styles
+
 * {
     margin: 0;
     padding: 0;
@@ -5,23 +17,37 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: $body-font;
+    background-color: $bg-color;
+    color: $text-color;
     padding: 1rem;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 1rem;
+//Typography
+
+h1, h2 {
+    font-family: $heading-font;
+    text-align: center; 
+    font-weight: normal;
+} 
+
+h1{
+    margin: 2rem 0 1rem;
+    font-size: 4rem;
+    color: $primary-color;
+    text-shadow:
+        2px 2px 0 red,
+        4px 4px 0 $highlight-color,
+        6px 6px 5px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-    text-align: center;
     font-size: 1rem;
-    font-weight: normal;
-    color:#777
+    color: $highlight-color;
+    margin-bottom: 1rem;
 }
+
+//Navigation
 
 #navbar {
     ul {
@@ -29,23 +55,25 @@ h2 {
         display: flex;
         justify-content: center;
         gap: 2rem;
-        background-color: #e0e0e083;
+        background-color: $box-bg;
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 2rem;
     }
       
     a {
+        font-family: $heading-font;
         text-decoration: none;
-        color: rgb(24, 172, 180);
-        font-weight: bold;
+        color: $primary-color;
         
         &:hover {
-            color: rgb(5, 89, 94);
+            color: $highlight-color;
         }
     }
 }
 
+
+//Search Section
 #search-section {
     display: flex;
     justify-content: center;
@@ -71,14 +99,14 @@ h2 {
     button {
         padding: 0.5rem 1rem;
         font-size: 1rem;
-        background-color: rgb(24, 172, 180);
+        background-color: $primary-color;
         color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
     
         &:hover {
-          background-color: rgb(5, 89, 94);
+          background-color: $highlight-color;
         }
     }
 }

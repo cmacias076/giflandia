@@ -11,16 +11,23 @@ body {
   padding: 1rem;
 }
 
-h1 {
+h1, h2 {
+  font-family: "Fredericka the Great", cursive;
   text-align: center;
-  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+h1 {
+  margin: 2rem 0 1rem;
+  font-size: 4rem;
+  color: rgb(24, 172, 180);
+  text-shadow: 2px 2px 0 red, 4px 4px 0 rgb(243, 15, 205), 6px 6px 5px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-  text-align: center;
   font-size: 1rem;
-  font-weight: normal;
-  color: #777;
+  color: rgb(243, 15, 205);
+  margin-bottom: 1rem;
 }
 
 #navbar ul {
@@ -28,18 +35,18 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  background-color: rgba(224, 224, 224, 0.5137254902);
+  background-color: rgba(224, 224, 224, 0.5);
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 2rem;
 }
 #navbar a {
+  font-family: "Fredericka the Great", cursive;
   text-decoration: none;
   color: rgb(24, 172, 180);
-  font-weight: bold;
 }
 #navbar a:hover {
-  color: rgb(5, 89, 94);
+  color: rgb(243, 15, 205);
 }
 
 #search-section {
@@ -72,5 +79,5 @@ h2 {
   cursor: pointer;
 }
 #search-form button:hover {
-  background-color: rgb(5, 89, 94);
+  background-color: rgb(243, 15, 205);
 }/*# sourceMappingURL=style.css.map */

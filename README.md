@@ -52,6 +52,7 @@ Below are screenshots of the app wireframes for both mobile and desktop views:
 - Git & GitHub  
 - GitHub Pages  
 - [Draw.io](https://draw.io) for wireframes  
+- Google Fonts
 
 ---
 
