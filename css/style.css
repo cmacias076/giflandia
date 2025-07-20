@@ -80,4 +80,34 @@ h2 {
 }
 #search-form button:hover {
   background-color: rgb(243, 15, 205);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.grid .grid-item {
+  width: calc(33.333% - 1rem);
+}
+
+@media (max-width: 320px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  #navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  #search-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .grid .grid-item {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */
