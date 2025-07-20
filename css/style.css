@@ -11,13 +11,16 @@ body {
   padding: 1rem;
 }
 
-h1, h2 {
-  font-family: "Fredericka the Great", cursive;
-  text-align: center;
-  font-weight: normal;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 h1 {
+  font-family: "Fredericka the Great", cursive;
   margin: 2rem 0 1rem;
   font-size: 4rem;
   color: rgb(24, 172, 180);
@@ -25,7 +28,9 @@ h1 {
 }
 
 h2 {
+  font-family: "Fredericka the Great", cursive;
   font-size: 1rem;
+  text-align: center;
   color: rgb(243, 15, 205);
   margin-bottom: 1rem;
 }
