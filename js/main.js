@@ -6,6 +6,11 @@ const searchInput = searchForm.querySelector('input[type="text"]');
 // Giphy API key
 const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
 
+// Function to fetch GIF based on user input
+async function fetchGifs(query) {
+    const endpoint = 'https://a;i.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g';
+}
+
 //Sample GIF URLs for testing
 const sampleGifs = [
     'https://media.giphy.com/media/3o7aD2saq1d0b4z5s8/giphy.gif',
