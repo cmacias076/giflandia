@@ -1,5 +1,10 @@
-// Results container from HTML
+// Get references to HTML elements
 const results = document.getElementById('results');
+const searchForm = document.getElementById('search-form');
+const searchInput = searchForm.querySelector('input[type="text"]');
+
+// Giphy API key
+const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
 
 //Sample GIF URLs for testing
 const sampleGifs = [
