@@ -10,6 +10,25 @@ if (!searchInput) {
 // Giphy API key
 const apiKey = 'REMOVED_KEY';
 
+//Function to fetch multiple random GIFs
+async function fetchRandomGifs(count = 9) {
+    const randomGifs = [];
+
+    for (let i = 0; i < count; i++) {
+        const endpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&rating=g`;
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            randomGifs.push(data.data); //Push the random GIF into the array
+        } catch (error) {
+            console.error('Error fetching random GIF:', error);
+        }
+        }
+
+        displayGifs(randomGifs); //Display the collected random GIFs
+    }
+
+
 // Function to fetch GIF based on user input
 async function fetchGifs(query) {
     const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g`;
@@ -53,7 +72,9 @@ searchForm.addEventListener('submit', function (event) {
     
     if (searchTerm) {
         fetchGifs(searchTerm);
-    } else {
-        console.warn('Empty or missing input field');
-    }  
+    } 
 });      
+document.addEventListener('DOMContentLoaded', () => {
+    fetchRandomGifs(9);
+});
+// Fetch random GIFs when the page loads
