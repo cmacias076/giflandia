@@ -8,41 +8,45 @@ const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
 
 // Function to fetch GIF based on user input
 async function fetchGifs(query) {
-    const endpoint = 'https://a;i.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g';
+    const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g`;
+    try {
+        const response = await fetch(endpoint); //Fetch data from Giphy API
+        const data = await response.json(); // Parse JSON response
+
+        displaySampleGifs(data.data);  //Call function to show GIFs
+    } catch (error) {
+        console.error('Error fetching GIFs:', error); // Log any errors
+    }
 }
 
-//Sample GIF URLs for testing
-const sampleGifs = [
-    'https://media.giphy.com/media/3o7aD2saq1d0b4z5s8/giphy.gif',
-    'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif',
-    'https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif',
-];
 
-// Function to display sample GIFs in grid
-function displaySampleGifs() {
-    if (!results) return; // Prevent errors if #result isn't found
-    
-    results.innerHTML = ''; // Clear any existing content
+// Function to display GIFs in grid
+function displayGifs(gifs) { 
+    results.innerHTML = ''; // Clear previous results
 
-//Create a div with class 'grid' to hold the images
-const gridContainer = document.createElement('div');
+    //Create grid container
+    const gridContainer = document.createElement('div');
     gridContainer.classList.add('grid');
 
-//Loop over sample GIF URLs and create image elements
-sampleGifs.forEach(url => {
-    const img = document.createElement('img');
-    img.src = url;
-    img.alt = 'Sample GIF';
-    img.classList.add('grid-item');
-    gridContainer.appendChild(img);
-});
+    //Loop through gifs array 
+    gifs.forEach(gif => {
+        const img = document.createElement('img');
+        img.src = gif.images.fixed_height.url; // Get gif URL from API response
+        img.alt = gif.title || 'GIF';
+        img.classList.add('grid-item');
+        gridContainer.appendChild(img);
+    });
 
-//Add the grid to the page
-results.appendChild(gridContainer);
+//Append grid to results section
+    results.appendChild(gridContainer);
 }
 
-// run function after DOM has loaded
-document. addEventListener('DOMContentLoaded', () => {
-    displaySampleGifs();
+// Listen for form submission
+searchForm.addEventListener('submit', function (event) {
+    event.preventDefault(); //Stops form from reloading the page
 
+    const query = searchInput.ariaValueMax.trim(); // Get search input
+    if (query !== '') {
+        fetchGifs (query); // Call fetch function with the input
+    }
 });
