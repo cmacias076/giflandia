@@ -13,25 +13,34 @@ body {
 
 #page-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  background-color: rgba(224, 224, 224, 0.5);
+  border-radius: 8px;
+}
+
+.site-branding {
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   font-family: "Fredericka the Great", cursive;
   font-weight: normal;
-  margin-bottom: 2rem 1rem;
   font-size: 4rem;
   color: rgb(24, 172, 180);
   text-shadow: 2px 2px 0 red, 4px 4px 0 rgb(243, 15, 205), 6px 6px 5px rgba(0, 0, 0, 0.2);
+  margin: 0;
 }
 
 h2 {
   font-family: "Fredericka the Great", cursive;
   font-weight: normal;
   color: rgb(243, 15, 205);
-  margin-left: 1rem;
+  margin: 0;
+  font-size: 1rem;
 }
 
 #navbar ul {
@@ -97,11 +106,10 @@ h2 {
 }
 
 @media (max-width: 320px) {
-  header {
-    display: flex;
+  #page-header {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
   #navbar ul {
     flex-direction: column;
