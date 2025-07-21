@@ -8,7 +8,7 @@ if (!searchInput) {
 }
 
 // Giphy API key
-const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
+// DISABLED FOR EDITING const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
 
 //Function to fetch multiple random GIFs
 async function fetchRandomGifs(count = 9) {
@@ -18,9 +18,17 @@ async function fetchRandomGifs(count = 9) {
         const endpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&rating=g`;
         try {
             const response = await fetch(endpoint);
+
+            // Handle rate limit error
+            if (response.status === 429) {
+                throw new Error('Rate limit exceeded. Please try again later.');
+            }
+
             const data = await response.json();
-            randomGifs.push(data.data); //Push the random GIF into the array
-        } catch (error) {
+           if (data && data.data) {
+               randomGifs.push(data.data); //Push the GIF into the array
+            }
+          }  catch (error) {
             console.error('Error fetching random GIF:', error);
         }
         }
@@ -33,12 +41,21 @@ async function fetchRandomGifs(count = 9) {
 async function fetchGifs(query) {
     const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g`;
     try {
-        const response = await fetch(endpoint); //Fetch data from Giphy API
+        const response = await fetch(endpoint);
+        
+        if (response.status ===429) {
+            throw new Error('Rate limit exceeded. Please try again later,');
+        }
+            
         const data = await response.json(); // Parse JSON response
 
-        displayGifs(data.data);  //Call function to show GIFs
+        //Display the search results
+        if (data && data.data && Array.isArray(data.data)) {
+             displayGifs(data.data); 
+        }
     } catch (error) {
         console.error('Error fetching GIFs:', error); // Log any errors
+        results.innerHTML = `<p style="color:red; font-weight:bold;"Oops! ${error.message}<p>`;
     }
 }
 
@@ -53,11 +70,17 @@ function displayGifs(gifs) {
 
 //Loop through gifs array 
     gifs.forEach(gif => {
-        const img = document.createElement('img');
-        img.src = gif.images.fixed_height.url; // Get gif URL from API response
-        img.alt = gif.title || 'GIF';
-        img.classList.add('grid-item');
-        gridContainer.appendChild(img);
+
+        //Safety check to avoid undefined properties
+        if (gif && gif.images && gif.images.fixed_height) {
+             const img = document.createElement('img');
+             img.src = gif.images.fixed_height.url; // Get gif URL from API response
+             img.alt = gif.title || 'GIF';
+             img.classList.add('grid-item');
+             gridContainer.appendChild(img);
+        } else {
+            console.warn('Invalid GIF data:', gif);
+        }     
     });
 
 //Append grid to results section

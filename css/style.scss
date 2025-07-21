@@ -3,10 +3,17 @@
 $primary-color: rgb(24, 172, 180);
 $highlight-color: rgb(243, 15, 205);
 $text-color: #333;
-$bg-color: #f0f0f0;
+$bg-color: rgb(50, 3, 50);
+$box-bg: rgba(224, 224, 224, 0.5);
+
+$accent-turquoise: #00f9ff;
+$accent-pink: #ff3ec9;
+$accent-purple: #b85cff;
+$accent-yellow: #fff300;
+
 $heading-font: 'Fredericka the Great', cursive;
 $body-font: Arial, sans-serif;
-$box-bg: rgba(224, 224, 224, 0.5);
+
 
 //Global styles
 
@@ -14,7 +21,6 @@ $box-bg: rgba(224, 224, 224, 0.5);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
 
 body {
     font-family: $body-font;
@@ -43,24 +49,28 @@ body {
 
 //Typography
 
-h1{
+h1 {
     font-family: $heading-font;
     font-weight: normal;
     font-size: 4rem;
-    color: $primary-color;
+    color: $accent-turquoise;
     text-shadow:
-        2px 2px 0 red,
-        4px 4px 0 $highlight-color,
-        6px 6px 5px rgba(0, 0, 0, 0.2);
-    margin: 0;
+     2px 2px 0 $accent-purple,
+     4px 4px 0 $accent-pink,
+     6px 6px 5px rgba(0, 0, 0, 0.2);
+    margin: 0; 
 }
 
 h2 {
+    
     font-family: $heading-font;
     font-weight: normal;
-    color: $highlight-color;
+    font-size: 1.2rem;
+    color: $accent-turquoise;
+    text-shadow: 
+     2px 2px 0 $highlight-color,
+     2px 2px 2px rgba(0, 0, 0, 0.2);
     margin: 0;
-    font-size: 1rem;
 }
 
 //Navigation
@@ -71,19 +81,27 @@ h2 {
         display: flex;
         justify-content: center;
         gap: 2rem;
-        background-color: $box-bg;
+        background-color: rgba(255, 255, 255, 0.05);
         padding: 1rem;
         border-radius: 8px;
-        margin-bottom: 2rem;
+        border: 2px solid $accent-purple;
+        box-shadow: 0 0 10px $accent-pink, inset 0 0 8px $accent-yellow;
     }
       
     a {
         font-family: $heading-font;
         text-decoration: none;
-        color: $primary-color;
+        color: $accent-turquoise;
+        padding: 0.5rem 1 rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+
         
         &:hover {
-            color: $highlight-color;
+           background-color: $accent-pink;
+           color: $accent-yellow;
+           border-color:$accent-yellow;
+           box-shadow: 0 0 12px $accent-yellow;
         }
     }
 }
@@ -94,6 +112,13 @@ h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid $accent-purple;
+    border-radius:12px;
+    box-shadow:
+        0 0 10px $accent-turquoise;
+        inset: 0 0 8px $accent-pink;
 }        
 
 #search-form {
@@ -103,26 +128,39 @@ h2 {
     input[type="search"] {
         padding: 0.5rem;
         font-size: 1rem;    
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        text-align: center;
+        font-family: $heading-font;
+        border: 1px solid $accent-yellow;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        box-shadow: 0 0 6px $accent-purple;
     }
 
     input[placeholder="Find your GIF"] {
         text-align: center;   
     }
 
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 10px $accent-pink;
+    }
+
     button {
         padding: 0.5rem 1rem;
         font-size: 1rem;
-        background-color: $primary-color;
-        color: white;
-        border: none;
-        border-radius: 4px;
+        font-family: $heading-font;
+        background-color: transparent;
+        color: $accent-turquoise;
+        border: 2px solid $accent-pink;
+        border-radius: 8px;
         cursor: pointer;
+        box-shadow: 0 0 8px $accent-yellow;
     
         &:hover {
-          background-color: $highlight-color;
+          background-color: $accent-yellow;
+          color: #111;
+          box-shadow: 0 0 12px $accent-yellow;
+          border-color: $accent-yellow;
         }
     }
 }
@@ -138,12 +176,22 @@ h2 {
     max-width: 800px;
     margin: 0 auto;
 
-.grid-item {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius:8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid $accent-turquoise;
+    box-shadow:
+        0 0 10px $accent-pink,
+        inset 0 0 10px $accent-purple;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+
+    .grid-item {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius:8px;
+        box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
     }    
 }
 
@@ -167,9 +215,15 @@ h2 {
     #search-form {
         flex-direction: column;
         align-items: center;
+
+        input[type="search"],
+        button {
+            width: 100%;
+        }
+    }
     }
 
-    //stacj GIF images vertically(1 column)
+    //stack GIF images vertically(1 column)
     .grid {
         grid-template-columns: 1fr;
     }
@@ -177,5 +231,9 @@ h2 {
     .grid .grid-item {
         width: 100%;
         height: auto;
+    }   
+
+    .grid-item {
+        box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
     }
 }
