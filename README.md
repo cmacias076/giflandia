@@ -39,7 +39,7 @@ Below are screenshots of the app wireframes for both mobile and desktop views:
 3. Click the  icon on a GIF to favorite it.
 4. Scroll to view all results in a responsive grid layout.
 
- Visit the site here: [GitHub Pages Link]() <!-- Will be adding Github Pages Link later on>
+ Visit the site here: [GitHub Pages Link](https://github.com/cmacias076/giflandia) <!-- Will be adding Github Pages Link later on>
 
 ---
 
