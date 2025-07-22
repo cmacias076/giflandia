@@ -8,7 +8,7 @@ if (!searchInput) {
 }
 
 // Giphy API key
-// DISABLED FOR EDITING const apiKey = 'REMOVED_KEY';
+const apiKey = 'REMOVED_KEY';
 
 //Function to fetch multiple random GIFs
 async function fetchRandomGifs(count = 9) {

@@ -153,14 +153,13 @@
   * #search-form button {
     width: 100%;
   }
-}
-* .grid {
-  grid-template-columns: 1fr;
-}
-* .grid .grid-item {
-  width: 100%;
-  height: auto;
-}
-* .grid-item {
-  box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
+  * .grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  * .grid-item {
+    width: 90%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
+  }
 }/*# sourceMappingURL=style.css.map */
