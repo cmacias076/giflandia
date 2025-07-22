@@ -25,6 +25,10 @@ $body-font: Arial, sans-serif;
 body {
     font-family: $body-font;
     background-color: $bg-color;
+    background-image: url('/images/giflandia_background.png');
+    background-repeat: repeat;
+    background-size: 525px;
+    background-position: top left;
     color: $text-color;
     padding: 1rem;
 }
