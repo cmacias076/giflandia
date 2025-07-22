@@ -195,7 +195,7 @@ h2 {
     }    
 }
 
-//Responsive styles targeting screens 320px and below
+//Responsive styles targeting screens 600px and below
 
 @media (max-width: 600px) {  
     //Stack site title and navbar vertically
@@ -221,19 +221,16 @@ h2 {
             width: 100%;
         }
     }
-    }
-
-    //stack GIF images vertically(1 column)
+   
     .grid {
         grid-template-columns: 1fr;
+        justify-items: center;
     }
-
-    .grid .grid-item {
-        width: 100%;
-        height: auto;
-    }   
 
     .grid-item {
+        width: 90%;
+        height: auto;
         box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
     }
+}
 }
