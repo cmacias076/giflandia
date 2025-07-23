@@ -8,7 +8,7 @@ if (!searchInput) {
 }
 
 // Giphy API key
-const apiKey = 'pY1rEREdUlzfy2f8J9xrzkqyes07tJZ0';
+const apiKey = 'MY_API_KEY';
 
 //Function to fetch multiple random GIFs
 async function fetchRandomGifs(count = 9) {
