@@ -3,8 +3,6 @@
 $primary-color: rgb(24, 172, 180);
 $highlight-color: rgb(243, 15, 205);
 $text-color: #333;
-$bg-color: rgb(50, 3, 50);
-$box-bg: rgba(224, 224, 224, 0.5);
 
 $accent-turquoise: #00f9ff;
 $accent-pink: #ff3ec9;
@@ -13,11 +11,6 @@ $accent-yellow: #fff300;
 
 $bg-color: rgb(50, 3, 50);
 $box-bg: rgba(224, 224, 224, 0.5);
-
-$accent-turquoise: #00f9ff;
-$accent-pink: #ff3ec9;
-$accent-purple: #b85cff;
-$accent-yellow: #fff300;
 
 $heading-font: 'Fredericka the Great', cursive;
 $body-font: Arial, sans-serif;
@@ -41,8 +34,6 @@ body {
 
 //Header Layout
 
-//Header Layout
-
 #page-header {
     display: flex;
     justify-content: space-between;
@@ -62,12 +53,6 @@ body {
     background-color: $box-bg;
     border-radius: 8px;
 }
-
-.site-branding {
-    display: flex;
-    flex-direction: column;
-}
-
 
 h1 {
     font-family: $heading-font;

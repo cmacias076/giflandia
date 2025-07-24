@@ -31,11 +31,6 @@ body {
   border-radius: 8px;
 }
 
-.site-branding {
-  display: flex;
-  flex-direction: column;
-}
-
 h1 {
   font-family: "Fredericka the Great", cursive;
   font-weight: normal;

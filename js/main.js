@@ -1,6 +1,3 @@
-const form= document.getElementById('search-form');
-const resultsSection = document.getElementById('results');
-
 
 // Access API key from .env
 const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
@@ -65,7 +62,7 @@ async function fetchGifs(query) {
         }
     } catch (error) {
         console.error('Error fetching GIFs:', error); // Log any errors
-        results.innerHTML = `<p style="color:red; font-weight:bold;"Oops! ${error.message}<p>`;
+        results.innerHTML = `<p style="color:red; font-weight:bold;">Oops! ${error.message}<p>`;
     }
 }
 
@@ -74,8 +71,6 @@ async function fetchGifs(query) {
 function displayGifs(gifs) { 
     results.innerHTML = ''; // Clear previous results
 
-//Create grid container
-    const gridContainer = document.createElement('div');
 //Create grid container
     const gridContainer = document.createElement('div');
     gridContainer.classList.add('grid');
