@@ -11,8 +11,17 @@ $accent-pink: #ff3ec9;
 $accent-purple: #b85cff;
 $accent-yellow: #fff300;
 
+$bg-color: rgb(50, 3, 50);
+$box-bg: rgba(224, 224, 224, 0.5);
+
+$accent-turquoise: #00f9ff;
+$accent-pink: #ff3ec9;
+$accent-purple: #b85cff;
+$accent-yellow: #fff300;
+
 $heading-font: 'Fredericka the Great', cursive;
 $body-font: Arial, sans-serif;
+
 
 
 //Global styles
@@ -21,17 +30,16 @@ $body-font: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
 body {
     font-family: $body-font;
     background-color: $bg-color;
-    background-image: url('../images/giflandia_background.png');
-    background-repeat: repeat;
-    background-size: 525px;
-    background-position: top left;
     color: $text-color;
     padding: 1rem;
 }
+
+//Header Layout
 
 //Header Layout
 
@@ -47,11 +55,19 @@ body {
 
 .site-branding {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    background-color: $box-bg;
+    border-radius: 8px;
+}
+
+.site-branding {
+    display: flex;
     flex-direction: column;
 }
 
-
-//Typography
 
 h1 {
     font-family: $heading-font;
@@ -62,11 +78,10 @@ h1 {
      2px 2px 0 $accent-purple,
      4px 4px 0 $accent-pink,
      6px 6px 5px rgba(0, 0, 0, 0.2);
-    margin: 0; 
+margin: 0; 
 }
 
 h2 {
-    
     font-family: $heading-font;
     font-weight: normal;
     font-size: 1.2rem;
@@ -76,8 +91,6 @@ h2 {
      2px 2px 2px rgba(0, 0, 0, 0.2);
     margin: 0;
 }
-
-//Navigation
 
 #navbar {
     ul {
@@ -96,10 +109,9 @@ h2 {
         font-family: $heading-font;
         text-decoration: none;
         color: $accent-turquoise;
-        padding: 0.5rem 1 rem;
+        padding: 0.5rem 1rem;
         border: 2px solid transparent;
         border-radius: 8px;
-
         
         &:hover {
            background-color: $accent-pink;
@@ -109,21 +121,6 @@ h2 {
         }
     }
 }
-
-
-//Search Section
-#search-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid $accent-purple;
-    border-radius:12px;
-    box-shadow:
-        0 0 10px $accent-turquoise;
-        inset: 0 0 8px $accent-pink;
-}        
 
 #search-form {
     display: flex;
@@ -144,11 +141,6 @@ h2 {
         text-align: center;   
     }
 
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 10px $accent-pink;
-    }
-
     button {
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -167,10 +159,21 @@ h2 {
           border-color: $accent-yellow;
         }
     }
+
+    border: 2px solid $accent-turquoise;
+    box-shadow:
+        0 0 10px $accent-pink,
+        inset 0 0 10px $accent-purple;
 }
 
-
-//Image grid(Flexbox)
+.fav-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+}
 
 .grid {
     display: grid;
@@ -179,27 +182,16 @@ h2 {
     justify-content: center;
     max-width: 800px;
     margin: 0 auto;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
 
     background-color: rgba(255, 255, 255, 0.05);
     border: 2px solid $accent-turquoise;
     box-shadow:
         0 0 10px $accent-pink,
         inset 0 0 10px $accent-purple;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-
-
-    .grid-item {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius:8px;
-        box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
-    }    
 }
-
-//Responsive styles targeting screens 600px and below
 
 @media (max-width: 600px) {  
     //Stack site title and navbar vertically
@@ -236,5 +228,4 @@ h2 {
         height: auto;
         box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
     }
-}
 }

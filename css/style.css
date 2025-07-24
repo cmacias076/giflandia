@@ -3,17 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-* body {
+
+body {
   font-family: Arial, sans-serif;
   background-color: rgb(50, 3, 50);
-  background-image: url("../images/giflandia_background.png");
-  background-repeat: repeat;
-  background-size: 525px;
-  background-position: top left;
   color: #333;
   padding: 1rem;
 }
-* #page-header {
+
+#page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,11 +20,23 @@
   background-color: rgba(224, 224, 224, 0.5);
   border-radius: 8px;
 }
-* .site-branding {
+
+.site-branding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  background-color: rgba(224, 224, 224, 0.5);
+  border-radius: 8px;
+}
+
+.site-branding {
   display: flex;
   flex-direction: column;
 }
-* h1 {
+
+h1 {
   font-family: "Fredericka the Great", cursive;
   font-weight: normal;
   font-size: 4rem;
@@ -34,7 +44,8 @@
   text-shadow: 2px 2px 0 #b85cff, 4px 4px 0 #ff3ec9, 6px 6px 5px rgba(0, 0, 0, 0.2);
   margin: 0;
 }
-* h2 {
+
+h2 {
   font-family: "Fredericka the Great", cursive;
   font-weight: normal;
   font-size: 1.2rem;
@@ -42,7 +53,8 @@
   text-shadow: 2px 2px 0 rgb(243, 15, 205), 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin: 0;
 }
-* #navbar ul {
+
+#navbar ul {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -53,36 +65,28 @@
   border: 2px solid #b85cff;
   box-shadow: 0 0 10px #ff3ec9, inset 0 0 8px #fff300;
 }
-* #navbar a {
+#navbar a {
   font-family: "Fredericka the Great", cursive;
   text-decoration: none;
   color: #00f9ff;
-  padding: 0.5rem 1 rem;
+  padding: 0.5rem 1rem;
   border: 2px solid transparent;
   border-radius: 8px;
 }
-* #navbar a:hover {
+#navbar a:hover {
   background-color: #ff3ec9;
   color: #fff300;
   border-color: #fff300;
   box-shadow: 0 0 12px #fff300;
 }
-* #search-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid #b85cff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #00f9ff;
-  inset: 0 0 8px #ff3ec9;
-}
-* #search-form {
+
+#search-form {
   display: flex;
   gap: 0.5rem;
+  border: 2px solid #00f9ff;
+  box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
 }
-* #search-form input[type=search] {
+#search-form input[type=search] {
   padding: 0.5rem;
   font-size: 1rem;
   font-family: "Fredericka the Great", cursive;
@@ -92,14 +96,10 @@
   color: white;
   box-shadow: 0 0 6px #b85cff;
 }
-* #search-form input[placeholder="Find your GIF"] {
+#search-form input[placeholder="Find your GIF"] {
   text-align: center;
 }
-* #search-form:focus {
-  outline: none;
-  box-shadow: 0 0 10px #ff3ec9;
-}
-* #search-form button {
+#search-form button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-family: "Fredericka the Great", cursive;
@@ -110,58 +110,61 @@
   cursor: pointer;
   box-shadow: 0 0 8px #fff300;
 }
-* #search-form button:hover {
+#search-form button:hover {
   background-color: #fff300;
   color: #111;
   box-shadow: 0 0 12px #fff300;
   border-color: #fff300;
 }
-* .grid {
+
+.fav-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid #00f9ff;
-  box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00f9ff;
+  box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
 }
-* .grid .grid-item {
-  width: 200px;
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
-}
+
 @media (max-width: 600px) {
-  * #page-header {
+  #page-header {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  * #navbar ul {
+  #navbar ul {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-  * #search-form {
+  #search-form {
     flex-direction: column;
     align-items: center;
   }
-  * #search-form input[type=search],
-  * #search-form button {
+  #search-form input[type=search],
+  #search-form button {
     width: 100%;
   }
-  * .grid {
+  .grid {
     grid-template-columns: 1fr;
     justify-items: center;
   }
-  * .grid-item {
+  .grid-item {
     width: 90%;
     height: auto;
     box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);

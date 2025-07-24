@@ -1,14 +1,24 @@
+const form= document.getElementById('search-form');
+const resultsSection = document.getElementById('results');
+
+
+// Access API key from .env
+const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
+console.log("API key", apiKey); // To confirm its loaded
+
+
 // Get references to HTML elements
 const results = document.getElementById('results'); 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('input[type="search"]');
 
+//Heart icons as constants
+const EMPTY_HEART = '\u2661'; //Unicode for an empty heart
+const FILLED_HEART = '\u2764\uFE0F'; //Unicode for a filled heart
+
 if (!searchInput) {
     console.error('Search input not found.');
 }
-
-// Giphy API key
-const apiKey = 'MY_API_KEY';
 
 //Function to fetch multiple random GIFs
 async function fetchRandomGifs(count = 9) {
@@ -66,28 +76,67 @@ function displayGifs(gifs) {
 
 //Create grid container
     const gridContainer = document.createElement('div');
+//Create grid container
+    const gridContainer = document.createElement('div');
     gridContainer.classList.add('grid');
+
+//Get favorites from localstorage or initialize empty array
+const favorites = JSON.parse(localStorage.getItem('favorites')) || [];    
 
 //Loop through gifs array 
     gifs.forEach(gif => {
 
         //Safety check to avoid undefined properties
         if (gif && gif.images && gif.images.fixed_height) {
-             const img = document.createElement('img');
-             img.src = gif.images.fixed_height.url; // Get gif URL from API response
-             img.alt = gif.title || 'GIF';
-             img.classList.add('grid-item');
-             gridContainer.appendChild(img);
-        } else {
-            console.warn('Invalid GIF data:', gif);
-        }     
+
+            const container = document.createElement('div');
+            container.classList.add('gif-container');
+
+            //Create image element
+            const img = document.createElement('img');
+            img.src = gif.images.fixed_height.url; // Get gif URL from API response
+            img.alt = gif.title || 'GIF';
+            img.classList.add('grid-item');
+
+            //Create favorite button
+            const favBtn = document.createElement('button');
+            favBtn.classList.add('fav-btn');
+
+            //Check if the GIF is already a favorite
+            const isFavorited = favorites.some(fav => fav.id === gif.id);
+            favBtn.innerText = isFavorited ? FILLED_HEART : EMPTY_HEART;
+
+            //Favorite button click handler
+            favBtn.addEventListener('click', () => {
+                let updatedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                
+                if (favBtn.innerText === EMPTY_HEART) {
+                    //Add to favorites 
+                    favBtn.innerText = FILLED_HEART;
+                    updatedFavorites.push({ id: gif.id, url: gif.images.fixed_height.url, title: gif.title });
+                } else {
+                    // Remove from favorites
+                    favBtn.innerText = EMPTY_HEART;
+                    updatedFavorites = updatedFavorites.filter(fav => fav.id !== gif.id);
+                }
+
+                // Save updated favorites to localStorage
+                localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+            });
+
+            // Append image and button to container
+            container.appendChild(img);
+            container.appendChild(favBtn);
+
+            // Append the container to the grid
+            gridContainer.appendChild(container);
+        }
     });
 
-//Append grid to results section
+    // Append the grid container to the results element
     results.appendChild(gridContainer);
 }
-
-// Listen for form submission
+// Fetch random GIFs when the page loads// Listen for form submission
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault(); //Stops form from reloading the page
 
@@ -96,7 +145,9 @@ searchForm.addEventListener('submit', function (event) {
     if (searchTerm) {
         fetchGifs(searchTerm);
     } 
-});      
+});
+
+// Fetch random GIFs when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     fetchRandomGifs(9);
 });

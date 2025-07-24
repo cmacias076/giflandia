@@ -1,1 +1,4 @@
 .$giflandia-api-project.drawio.bkp
+.env
+node_modules/
+dist/

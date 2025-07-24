@@ -1,0 +1,25 @@
+{
+  "name": "giflandia",
+  "version": "1.0.0",
+  "description": "GIFLANDIA is a GIF search engine powered by the Giphy API. Users can enter keywords to search for GIFs, browse results in a responsive grid, and favorite GIFs during their session. The goal of this project is to practice working with JavaScript, APIs, and responsive web design while building a fun and interactive application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmacias076/giflandia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cmacias076/giflandia/issues"
+  },
+  "homepage": "https://github.com/cmacias076/giflandia#readme",
+  "devDependencies": {
+    "vite": "^7.0.5"
+  }
+}

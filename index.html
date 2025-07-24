@@ -14,10 +14,11 @@
 <body>
     <header id="page-header">
         <div class="site-branding">
-    <h1>Giflandia</h1>
-    <h2>How do you GIF?</h2>
-    </div>
+            <h1>Giflandia</h1>
+            <h2>How do you GIF?</h2>
+        </div>
 
+    <nav id ="navbar">
     <nav id ="navbar">
         <ul>
             <li><a href="#">Home</a></li>
@@ -25,9 +26,9 @@
             <li><a href="#">About Giflandia</a></li>
         </ul>
     </nav>
-    </header>
+</header>
     
-    <section id="search-section">
+    <section id="search-section" class="grid">
         <form id="search-form">
             <input type="search" placeholder="Find your GIF" required>
             <button type="submit">Search</button>
@@ -36,6 +37,6 @@
 
     <section id="results"></section>
             <!-- GIFs will be displayed here -->
-    <script src="./js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html>
