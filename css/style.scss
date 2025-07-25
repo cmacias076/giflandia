@@ -120,9 +120,6 @@ h2 {
         background-color: rgba(255, 255, 255, 0.1);
         color: white;
         box-shadow: 0 0 6px $accent-purple;
-    }
-
-    input[placeholder="Find your GIF"] {
         text-align: center;   
     }
 
@@ -153,11 +150,19 @@ h2 {
 
 .fav-btn {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 10px;
+    right: 10px;
     background: rgba(255, 255, 255, 0.7);
     border: none;
-    border-radius: 50%;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+ .grid-item {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .grid {
@@ -176,6 +181,13 @@ h2 {
     box-shadow:
         0 0 10px $accent-pink,
         inset 0 0 10px $accent-purple;
+
+
+   
+}
+
+.gif-container {
+    position: relative;
 }
 
 @media (max-width: 600px) {  

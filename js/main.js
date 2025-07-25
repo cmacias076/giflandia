@@ -1,8 +1,8 @@
-
+import '../css/style.scss';
 // Access API key from .env
 const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
 console.log("API key", apiKey); // To confirm its loaded
-
+console.log("All env vars:", import.meta.env);
 
 // Get references to HTML elements
 const results = document.getElementById('results'); 

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cmacias076/giflandia#readme",
   "devDependencies": {
+    "sass": "^1.89.2",
     "vite": "^7.0.5"
   }
 }
