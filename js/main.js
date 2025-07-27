@@ -76,13 +76,17 @@ function displayGifs(gifs) {
     gridContainer.classList.add('grid');
 
 //Get favorites from localstorage or initialize empty array
-const favorites = JSON.parse(localStorage.getItem('favorites')) || [];    
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];    
 
 //Loop through gifs array 
     gifs.forEach(gif => {
 
         //Safety check to avoid undefined properties
         if (gif && gif.images && gif.images.fixed_height) {
+
+            //Outer container with class grid-item
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item')
 
             const container = document.createElement('div');
             container.classList.add('gif-container');
@@ -91,7 +95,6 @@ const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             const img = document.createElement('img');
             img.src = gif.images.fixed_height.url; // Get gif URL from API response
             img.alt = gif.title || 'GIF';
-            img.classList.add('grid-item');
 
             //Create favorite button
             const favBtn = document.createElement('button');
@@ -114,7 +117,6 @@ const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
                     favBtn.innerText = EMPTY_HEART;
                     updatedFavorites = updatedFavorites.filter(fav => fav.id !== gif.id);
                 }
-
                 // Save updated favorites to localStorage
                 localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
             });
@@ -124,7 +126,9 @@ const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             container.appendChild(favBtn);
 
             // Append the container to the grid
-            gridContainer.appendChild(container);
+            gridItem.appendChild(container);
+
+            gridContainer.appendChild(gridItem);
         }
     });
 
@@ -144,6 +148,6 @@ searchForm.addEventListener('submit', function (event) {
 
 // Fetch random GIFs when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    fetchRandomGifs(9);
+    fetchRandomGifs(6);
 });
 // Fetch random GIFs when the page loads
