@@ -26,19 +26,17 @@ $body-font: Arial, sans-serif;
 }
 
 body {
+    line-height: 1.6;
     font-family: $body-font;
     background-color: $bg-color;
     background-image:
-        linear-gradient(rgba(50, 3, 50, 0.85), (rgba(50, 3, 50, 0.85))),
+        linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85)),
         url('/images/new-giflandia-background.png');
-     background-size: cover;
-     background-position: center center;
-     background-repeat: repeat;
-     background-attachment: fixed;
-     background-blend-mode: soft-light;
-    
-   
-    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
     color: $text-color;
     padding: 1rem;
 }
@@ -52,30 +50,33 @@ body {
     align-items: center;
     margin-bottom: 2rem;
     padding: 1rem 2rem;
-    background: linear-gradient(
-        145deg,
-        $accent-purple 0%, 
-        $accent-pink 100%
-    );
     border-radius: 12px;
-    border: 2px solid $accent-purple;
+    background: linear-gradient(
+                145deg,
+                rgba($accent-purple, 0.1),
+                rgba($accent-pink, 0.15),
+                rgba($accent-purple, 0.1)
+            );
+    border: 1px solid rgba($accent-pink, 0.2);
     box-shadow: 
-        0 0 15px $accent-yellow,
-        inset 0 0 8px $accent-turquoise;
+            0 0 12px rgba($accent-pink, 0.2),
+            inset 0 0 6px rgba($accent-purple, 0.1);
+    backdrop-filter: blur(6px);
 }
 
 .site-branding {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
     margin: 0;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    border: 1px solid $accent-turquoise;
-    box-shadow: 0 0 8px $accent-pink;
-
+    background: rgba($accent-pink, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba($accent-pink, 0.2);
+    box-shadow: 
+            0 0 12px rgba($accent-pink, 0.15),
+            inset 0 0 10px rgba($accent-purple, 0.2);
 }
 
 h1 {
@@ -84,21 +85,27 @@ h1 {
     font-size: 4rem;
     color: $accent-turquoise;
     text-shadow:
-     2px 2px 0 $accent-purple,
-     4px 4px 0 $accent-pink,
-     6px 6px 5px rgba(0, 0, 0, 0.2);
-margin: 0; 
+        0 0 6px rgba($accent-pink, 0.03),
+        0 0 12px rgba($accent-yellow, 0.2);
+    margin: 0; 
+    
+    &:hover {
+        transform: scale(1.08);
+        text-shadow:
+            0 0 12px $accent-turquoise,
+            0 0 20px $accent-pink,
+            0 0 30px $accent-yellow;
+    }
 }
 
 h2 {
     font-family: $heading-font;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: $accent-turquoise;
     text-shadow: 
-     2px 2px 0 $highlight-color,
-     2px 2px 2px rgba(0, 0, 0, 0.2);
-    margin-top: 0.5rem;
+        2px 2px 0 $highlight-color,
+        2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 #navbar {
@@ -116,16 +123,12 @@ h2 {
         flex-wrap: wrap;
         gap: 2rem;
         padding: 1rem;
-        background: linear-gradient(
-            90deg, 
-            rgba(255, 255, 255, 0.05),
-            rgba(24, 172, 180, 0.1)
-        );
-        border-radius: 10px;
-        border: 2px solid $accent-purple;
-        box-shadow: 
-            0 0 12px $accent-yellow, 
-            inset 0 0 6px $accent-pink;
+       background: rgba(24, 172, 180, 0.1);
+    border-radius: 12px;
+    border: 2px solid $accent-purple;
+    box-shadow: 
+        0 0 30px 6px rgba($accent-yellow, 0.15),
+        inset 0 0 12px $accent-turquoise;
     }
       
     a {
@@ -133,16 +136,29 @@ h2 {
         text-decoration: none;
         color: $accent-yellow;
         padding: 0.5rem 1.25rem;
-        border-radius: 8px;
-        
+        border: 2px solid transparent;
+        background-image: linear-gradient(
+                    120deg, 
+                    rgba($accent-pink, 0.4),
+                    rgba($accent-purple, 0.5)
+                    rgba($accent-pink, 0.4)
+        );
+        background-size: 200% auto;  
+      
         &:hover {
-           background-color: $accent-purple;
+           background-position: right center;
            color: $accent-turquoise;
-           border: 1px solid $accent-turquoise;
-           transform: scale(1.2);
-           box-shadow: 0 0 8px $accent-yellow;
+           box-shadow: 0 0 12px $accent-yellow, 0 0 6px rgba($accent-pink, 0.03);
         }
     }
+}
+#search-section.grid {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0;
+    gap: 0;
 }
 
 #search-form {
@@ -151,10 +167,19 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    margin: 0 auto;
+
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    border-radius: 12px;
+
+    border: 2px solid $accent-turquoise;
+    box-shadow: 
+        0 0 10px $accent-pink,
+        inset 0 0 10px $accent-purple;
 
     input[type="search"] {
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
         font-size: 1rem;    
         font-family: $heading-font;
         border: 1px solid $accent-yellow;
@@ -163,8 +188,9 @@ h2 {
         color: white;
         box-shadow: 0 0 6px $accent-purple;
         text-align: center;   
-        width: auto;
-     
+
+        width: 300px;
+        max-width: 100%;
     }
 
     button {
@@ -173,7 +199,7 @@ h2 {
         font-family: $heading-font;
         background-color: transparent;
         color: $accent-turquoise;
-        border: 2px solid $accent-pink;
+        border: 2px solid $accent-turquoise;
         border-radius: 8px;
         cursor: pointer;
         box-shadow: 0 0 8px $accent-yellow;
@@ -181,16 +207,12 @@ h2 {
         &:hover {
           background-color: $accent-yellow;
           color: #111;
-          box-shadow: 0 0 12px $accent-yellow;
-          border-color: $accent-yellow;
+          box-shadow: 0 0 10px $accent-pink,
+                      inset 0 0 10px $accent-purple;
         }
     }
-
-    border: 2px solid $accent-turquoise;
-    box-shadow:
-        0 0 10px $accent-pink,
-        inset 0 0 10px $accent-purple;
 }
+
 
 .fav-btn {
     position: absolute;

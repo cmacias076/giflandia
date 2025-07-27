@@ -5,6 +5,7 @@
 }
 
 body {
+  line-height: 1.6;
   font-family: Arial, sans-serif;
   background-color: rgb(50, 3, 50);
   background-image: linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85)), url("/images/new-giflandia-background.png");
@@ -23,23 +24,26 @@ body {
   align-items: center;
   margin-bottom: 2rem;
   padding: 1rem 2rem;
-  background: linear-gradient(145deg, #b85cff 0%, #ff3ec9 100%);
   border-radius: 12px;
-  border: 2px solid #b85cff;
-  box-shadow: 0 0 15px #fff300, inset 0 0 8px #00f9ff;
+  background: linear-gradient(145deg, rgba(184, 92, 255, 0.1), rgba(255, 62, 201, 0.15), rgba(184, 92, 255, 0.1));
+  border: 1px solid rgba(255, 62, 201, 0.2);
+  box-shadow: 0 0 12px rgba(255, 62, 201, 0.2), inset 0 0 6px rgba(184, 92, 255, 0.1);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
 }
 
 .site-branding {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
   margin: 0;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  border: 1px solid #00f9ff;
-  box-shadow: 0 0 8px #ff3ec9;
+  background: rgba(255, 62, 201, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 62, 201, 0.2);
+  box-shadow: 0 0 12px rgba(255, 62, 201, 0.15), inset 0 0 10px rgba(184, 92, 255, 0.2);
 }
 
 h1 {
@@ -47,17 +51,20 @@ h1 {
   font-weight: normal;
   font-size: 4rem;
   color: #00f9ff;
-  text-shadow: 2px 2px 0 #b85cff, 4px 4px 0 #ff3ec9, 6px 6px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 6px rgba(255, 62, 201, 0.03), 0 0 12px rgba(255, 243, 0, 0.2);
   margin: 0;
+}
+h1:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 12px #00f9ff, 0 0 20px #ff3ec9, 0 0 30px #fff300;
 }
 
 h2 {
   font-family: "Fredericka the Great", "Georgia", serif;
   font-weight: normal;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #00f9ff;
   text-shadow: 2px 2px 0 rgb(243, 15, 205), 2px 2px 2px rgba(0, 0, 0, 0.2);
-  margin-top: 0.5rem;
 }
 
 #navbar {
@@ -75,24 +82,33 @@ h2 {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(24, 172, 180, 0.1));
-  border-radius: 10px;
+  background: rgba(24, 172, 180, 0.1);
+  border-radius: 12px;
   border: 2px solid #b85cff;
-  box-shadow: 0 0 12px #fff300, inset 0 0 6px #ff3ec9;
+  box-shadow: 0 0 30px 6px rgba(255, 243, 0, 0.15), inset 0 0 12px #00f9ff;
 }
 #navbar a {
   font-family: "Fredericka the Great", "Georgia", serif;
   text-decoration: none;
   color: #fff300;
   padding: 0.5rem 1.25rem;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(120deg, rgba(255, 62, 201, 0.4), rgba(184, 92, 255, 0.5) rgba(255, 62, 201, 0.4));
+  background-size: 200% auto;
 }
 #navbar a:hover {
-  background-color: #b85cff;
+  background-position: right center;
   color: #00f9ff;
-  border: 1px solid #00f9ff;
-  transform: scale(1.2);
-  box-shadow: 0 0 8px #fff300;
+  box-shadow: 0 0 12px #fff300, 0 0 6px rgba(255, 62, 201, 0.03);
+}
+
+#search-section.grid {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0;
+  gap: 0;
 }
 
 #search-form {
@@ -101,12 +117,16 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 12px;
   border: 2px solid #00f9ff;
   box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
 }
 #search-form input[type=search] {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   font-family: "Fredericka the Great", "Georgia", serif;
   border: 1px solid #fff300;
@@ -115,7 +135,8 @@ h2 {
   color: white;
   box-shadow: 0 0 6px #b85cff;
   text-align: center;
-  width: auto;
+  width: 300px;
+  max-width: 100%;
 }
 #search-form button {
   padding: 0.5rem 1rem;
@@ -123,7 +144,7 @@ h2 {
   font-family: "Fredericka the Great", "Georgia", serif;
   background-color: transparent;
   color: #00f9ff;
-  border: 2px solid #ff3ec9;
+  border: 2px solid #00f9ff;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 0 8px #fff300;
@@ -131,8 +152,7 @@ h2 {
 #search-form button:hover {
   background-color: #fff300;
   color: #111;
-  box-shadow: 0 0 12px #fff300;
-  border-color: #fff300;
+  box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
 }
 
 .fav-btn {
