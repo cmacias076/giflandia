@@ -82,7 +82,7 @@ VITE_GIPHY_API_KEY=your_api_key_here
 3. Browse GIFs in the responsive grid layout.
 4. Click the ♡ button to favorite a GIF - it will remain favorited during your current session.
 
- Visit the site here: [GitHub Pages Link](https://github.com/cmacias076/giflandia) <!-- Will be adding Github Pages Link later on>
+ Visit the site here: [GitHub Pages Link](https://cmacias076.github.io/giflandia/)
 
 ---
 
