@@ -7,6 +7,12 @@
 body {
   font-family: Arial, sans-serif;
   background-color: rgb(50, 3, 50);
+  background-image: linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85)), url("/images/new-giflandia-background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-blend-mode: soft-light;
   color: #333;
   padding: 1rem;
 }
@@ -17,22 +23,27 @@ body {
   align-items: center;
   margin-bottom: 2rem;
   padding: 1rem 2rem;
-  background-color: rgba(224, 224, 224, 0.5);
-  border-radius: 8px;
+  background: linear-gradient(145deg, #b85cff 0%, #ff3ec9 100%);
+  border-radius: 12px;
+  border: 2px solid #b85cff;
+  box-shadow: 0 0 15px #fff300, inset 0 0 8px #00f9ff;
 }
 
 .site-branding {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  background-color: rgba(224, 224, 224, 0.5);
-  border-radius: 8px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid #00f9ff;
+  box-shadow: 0 0 8px #ff3ec9;
 }
 
 h1 {
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Fredericka the Great", "Georgia", serif;
   font-weight: normal;
   font-size: 4rem;
   color: #00f9ff;
@@ -41,61 +52,75 @@ h1 {
 }
 
 h2 {
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Fredericka the Great", "Georgia", serif;
   font-weight: normal;
   font-size: 1.2rem;
   color: #00f9ff;
   text-shadow: 2px 2px 0 rgb(243, 15, 205), 2px 2px 2px rgba(0, 0, 0, 0.2);
-  margin: 0;
+  margin-top: 0.5rem;
 }
 
+#navbar {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 1rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
 #navbar ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
   padding: 1rem;
-  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(24, 172, 180, 0.1));
+  border-radius: 10px;
   border: 2px solid #b85cff;
-  box-shadow: 0 0 10px #ff3ec9, inset 0 0 8px #fff300;
+  box-shadow: 0 0 12px #fff300, inset 0 0 6px #ff3ec9;
 }
 #navbar a {
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Fredericka the Great", "Georgia", serif;
   text-decoration: none;
-  color: #00f9ff;
-  padding: 0.5rem 1rem;
-  border: 2px solid transparent;
+  color: #fff300;
+  padding: 0.5rem 1.25rem;
   border-radius: 8px;
 }
 #navbar a:hover {
-  background-color: #ff3ec9;
-  color: #fff300;
-  border-color: #fff300;
-  box-shadow: 0 0 12px #fff300;
+  background-color: #b85cff;
+  color: #00f9ff;
+  border: 1px solid #00f9ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 8px #fff300;
 }
 
 #search-form {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  margin: 0 auto;
   border: 2px solid #00f9ff;
   box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
 }
 #search-form input[type=search] {
   padding: 0.5rem;
   font-size: 1rem;
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Fredericka the Great", "Georgia", serif;
   border: 1px solid #fff300;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   box-shadow: 0 0 6px #b85cff;
   text-align: center;
+  width: auto;
 }
 #search-form button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Fredericka the Great", "Georgia", serif;
   background-color: transparent;
   color: #00f9ff;
   border: 2px solid #ff3ec9;
@@ -122,20 +147,12 @@ h2 {
   height: 30px;
 }
 
-.grid-item {
-  width: 250px;
-  height: 250px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 8px;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   justify-content: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   border-radius: 12px;
   padding: 1rem;
@@ -143,6 +160,21 @@ h2 {
   background-color: rgba(255, 255, 255, 0.05);
   border: 2px solid #00f9ff;
   box-shadow: 0 0 10px #ff3ec9, inset 0 0 10px #b85cff;
+}
+
+.grid-item {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #00f9ff, 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .gif-container {
@@ -155,10 +187,29 @@ h2 {
     align-items: center;
     gap: 1rem;
   }
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
   #navbar ul {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding: 0.5rem;
+  }
+  #navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  #navbar a {
+    display: inline-block;
+    margin: 0.25rem 0;
   }
   #search-form {
     flex-direction: column;
@@ -172,9 +223,10 @@ h2 {
     grid-template-columns: 1fr;
     justify-items: center;
   }
-  .grid-item {
-    width: 90%;
+  .grid-item img {
+    width: 100%;
     height: auto;
-    box-shadow: 0 4px 8px rgba(24, 172, 180, 0.3);
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }/*# sourceMappingURL=style.css.map */
