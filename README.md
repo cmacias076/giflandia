@@ -3,26 +3,41 @@
 ### Created by: Christine Macias
 
 ## Project Overview
-GIFLANDIA is a GIF search engine powered by the Giphy API. Users can enter keywords to search for GIFs, browse results in a responsive grid, and favorite GIFs during their session. The goal of this project is to practice working with JavaScript, APIs, and responsive web design while building a fun and interactive application.
+
+**GIFLANDIA** is a dynamic, mobile-friendly GIF search engine powered by the Giphy API.
+Users can:
+- Search for GIFs using keywords
+- Browse GIFs in a responsive, animated layout
+- Favorite GIFs during their session
+
+This project demonstrates skills in Javascript, SCSS, responsive design, API integration, and interactive front-end development.
+
+---
+## Table of Contents
+
+- [User Stories](#user-stories)
+- [Wireframes](#wireframes)
+- [Installation Instructions](#installation-instructions)
+- [How to Use](#how-to-use-this-website)
+- [Technologies USed](#technologies-used)
+- [Ideas for future improvement](#ideas-for-future-improvement)
 
 ---
 
 ## User Stories
 
 - **User Story 1**:
- As a user, I want to enter a keyword into a search bar so that I can find GIFs that match what I'm looking for.  
+I want to enter a keyword into a search bar and find matching GIFs.  
 - **User Story 2**: 
-As a user, I want to see the search results displayed in a neat grid layout so that I can easily browse multiple GIFs at once.  
+I want results displayed in a neat grid layout for easy browsing.  
 - **User Story 3**: 
-As a user, I want to be able to "favorite" or "save" GIFs I like so that I can view them again later during my session.  
+I want to "favorite" GIFs I like so that I can view them again during my session.  
 - **User Story 4**: 
-As a user on a mobile device, I want the layout to adjust so that I can comfortably use the search feature and view GIFs on my phone.  
+I want the layout to adjust for mobile so I can use it on my phone.
 
 ---
 
 ## Wireframes
-
-Below are screenshots of the app wireframes for both mobile and desktop views:
 
 ### Mobile Wireframe
 ![GIFLANDIA Mobile Wireframe](./wireframes/giflandia-mobile.png)
@@ -32,12 +47,40 @@ Below are screenshots of the app wireframes for both mobile and desktop views:
 
 ---
 
+## Installation Instructions
+
+To run this project locally, follow these steps:
+
+1. **Clone the Repository**
+Using Git or GitHub Desktop:
+```bash 
+git clone https://github.com/cmacias076/giflandia.git
+
+2. Navigate to the Project Folder
+cd giflandia
+
+3. Open with Live Server or Vite
+Option A: Using Live Server (VS Code Extension)
+    1. Open the folder in VS Code.
+    2. Right-click index.html and choose "Open with Live Server". 
+    3. The page should open in your browser and be fully functional.
+
+Option B: Using Vite (if installed)
+If you're using Vite:
+- npm install
+- npm run dev
+
+NOTE: If you're using a .env file for your API key, create it in the root folder:
+VITE_GIPHY_API_KEY=your_api_key_here
+
+---
+
 ## How to Use This Website
 
-1. Type a keyword (e.g., "cats", "dancing", "funny").
-2. Click the "Search" button to see matching GIFs.
-3. Click the  icon on a GIF to favorite it.
-4. Scroll to view all results in a responsive grid layout.
+1. Type a keyword (e.g., cats, funny, dancing) into the search bar
+2. Click the "Search" button.
+3. Browse GIFs in the responsive grid layout.
+4. Click the ♡ button to favorite a GIF - it will remain favorited during your current session.
 
  Visit the site here: [GitHub Pages Link](https://github.com/cmacias076/giflandia) <!-- Will be adding Github Pages Link later on>
 
@@ -46,20 +89,20 @@ Below are screenshots of the app wireframes for both mobile and desktop views:
 ## Technologies Used
 
 - HTML5  
-- CSS3 (with custom CSS Grid)  
+- SCSS (Sass CSS Preprocessor)  
 - JavaScript (ES6+)  
 - Giphy API  
 - Git & GitHub  
-- GitHub Pages  
-- [Draw.io](https://draw.io) for wireframes  
+- GitHub Pages (Deployment) 
+- Draw.io (Wireframing)  
 - Google Fonts
 
 ---
 
 ## Ideas for Future Improvement
 
-- Allow download or copy link to share GIFs
 - Add trending GIFs on homepage by default
+- Allow download or copy link to share GIFs
 - Add animation or theme switcher (light/dark)
 
 ---
