@@ -1,29 +1,47 @@
 import '../css/style.scss';
-// Access API key from .env
+
+//Default number of GIFs to fetch
+const DEFAULT_LIMIT = 9;
+
+document.addEventListener('DOMContentLoaded', () => {
+// Access API key from .env (Vite environment variable)
 const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
-console.log("API key", apiKey); // To confirm its loaded
-console.log("All env vars:", import.meta.env);
+
+//Check if API key is loaded
+if (!apiKey) {
+    const results = document.getElementById('results'); 
+    if (results) {
+        results.innerHTML = 
+        '<p style="color:red; font-weight:bold;">Error: Missing Giphy API key. Please create a .env file with your API key.</p>';
+    }
+    console.error('Giphy API key is not defined. Please add it to your .env file.');
+    return; //Stop execution if no key
+}
 
 // Get references to HTML elements
 const results = document.getElementById('results'); 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('input[type="search"]');
 
+if (!results || !searchForm || !searchInput) {
+    console.error('One or more required DOM elements are missing.');
+    return;
+}
+
 //Heart icons as constants
 const EMPTY_HEART = '\u2661'; //Unicode for an empty heart
 const FILLED_HEART = '\u2764\uFE0F'; //Unicode for a filled heart
 
-if (!searchInput) {
-    console.error('Search input not found.');
-}
-
-//Function to fetch multiple random GIFs
-async function fetchRandomGifs(count = 9) {
+/**
+ * Fetch multiple random GIFs from Giphy
+ * @param {number} count Number of random GIFs to fetch
+ */
+async function fetchRandomGifs(count = DEFAULT_LIMIT) {
     const randomGifs = [];
 
     for (let i = 0; i < count; i++) {
         const endpoint = `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&rating=g`;
-        try {
+            try {
             const response = await fetch(endpoint);
 
             // Handle rate limit error
@@ -32,26 +50,29 @@ async function fetchRandomGifs(count = 9) {
             }
 
             const data = await response.json();
-           if (data && data.data) {
+            if (data && data.data) {
                randomGifs.push(data.data); //Push the GIF into the array
             }
           }  catch (error) {
-            console.error('Error fetching random GIF:', error);
-        }
+             console.error('Error fetching random GIF:', error);
+          }
         }
 
         displayGifs(randomGifs); //Display the collected random GIFs
     }
 
 
-// Function to fetch GIF based on user input
+/**
+ * Fetch GIFs matching user search query
+ * @param {string} query Search keyword
+ */
 async function fetchGifs(query) {
     const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=12&rating=g`;
     try {
         const response = await fetch(endpoint);
         
         if (response.status ===429) {
-            throw new Error('Rate limit exceeded. Please try again later,');
+            throw new Error('Rate limit exceeded. Please try again later.');
         }
             
         const data = await response.json(); // Parse JSON response
@@ -62,12 +83,15 @@ async function fetchGifs(query) {
         }
     } catch (error) {
         console.error('Error fetching GIFs:', error); // Log any errors
-        results.innerHTML = `<p style="color:red; font-weight:bold;">Oops! ${error.message}<p>`;
+        results.innerHTML = `<p style="color:red; font-weight:bold;">Oops! ${error.message}</p>`;
     }
 }
 
 
-// Function to display GIFs in grid
+/**
+ * Display GIFs in a grid layout with favorite buttons
+ * @param {Array} gifs Array of GIF objects from Giphy API
+ */
 function displayGifs(gifs) { 
     results.innerHTML = ''; // Clear previous results
 
@@ -86,10 +110,11 @@ function displayGifs(gifs) {
 
             //Outer container with class grid-item
             const gridItem = document.createElement('div');
-            gridItem.classList.add('grid-item')
+            gridItem.classList.add('grid-item');
 
             const container = document.createElement('div');
             container.classList.add('gif-container');
+            container.style.position = 'relative';
 
             //Create image element
             const img = document.createElement('img');
@@ -135,19 +160,15 @@ function displayGifs(gifs) {
     // Append the grid container to the results element
     results.appendChild(gridContainer);
 }
-// Fetch random GIFs when the page loads// Listen for form submission
-searchForm.addEventListener('submit', function (event) {
+// Listen for form submission
+searchForm.addEventListener('submit', event => {
     event.preventDefault(); //Stops form from reloading the page
-
-    const searchTerm = searchInput && searchInput.value ? searchInput.value.trim() : '';
-    
+    const searchTerm = searchInput.value.trim();
     if (searchTerm) {
         fetchGifs(searchTerm);
     } 
 });
 
-// Fetch random GIFs when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    fetchRandomGifs(6);
+// Load random GIFs on initial page load
+fetchRandomGifs(DEFAULT_LIMIT);
 });
-// Fetch random GIFs when the page loads

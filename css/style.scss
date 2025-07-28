@@ -29,9 +29,8 @@ body {
     line-height: 1.6;
     font-family: $body-font;
     background-color: $bg-color;
-    background-image:
-        linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85)),
-        url('/images/new-giflandia-background.png');
+    background-image:url('/images/new-giflandia-background.png'),
+        linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85));
     background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
@@ -156,13 +155,13 @@ h2 {
         }
     }
 }
-#search-section.grid {
-    display: flex;
-    justify-content: center;
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 0;
-    gap: 0;
+
+#search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto;
+  width: 100%;
 }
 
 #search-form {
@@ -181,6 +180,8 @@ h2 {
     box-shadow: 
         0 0 10px $accent-pink,
         inset 0 0 10px $accent-purple;
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
     input[type="search"] {
         padding: 0.5rem 1rem;
@@ -215,30 +216,27 @@ h2 {
                       inset 0 0 10px $accent-purple;
         }
     }
-}
+
  
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    justify-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid $accent-turquoise;
-    box-shadow:
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // fixed 3 columns
+  aspect-ratio: 1 / 1;
+  gap: 1rem;
+  width:100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 2px solid $accent-turquoise;
+  box-shadow:
         0 0 10px $accent-pink,
         inset 0 0 10px $accent-purple;
 }
 
  .grid-item {
-    aspect-ratio: 1 / 1;
     position: relative;
-    border-radius: 8px;
+    width: 100%;
     overflow: hidden;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     
@@ -251,8 +249,7 @@ h2 {
 
  .gif-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     }
@@ -341,6 +338,7 @@ h2 {
     .grid {
         grid-template-columns: 1fr;
         justify-items: center;
+        padding: 0.5rem;
     }
 
     .grid-item img {
