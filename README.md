@@ -19,7 +19,7 @@ This project demonstrates skills in Javascript, SCSS, responsive design, API int
 - [Wireframes](#wireframes)
 - [Installation Instructions](#installation-instructions)
 - [How to Use](#how-to-use-this-website)
-- [Technologies USed](#technologies-used)
+- [Technologies Used](#technologies-used)
 - [Ideas for future improvement](#ideas-for-future-improvement)
 
 ---
@@ -59,19 +59,19 @@ git clone https://github.com/cmacias076/giflandia.git
 2. Navigate to the Project Folder
 cd giflandia
 
-3. Open with Live Server or Vite
-Option A: Using Live Server (VS Code Extension)
-    1. Open the folder in VS Code.
-    2. Right-click index.html and choose "Open with Live Server". 
-    3. The page should open in your browser and be fully functional.
-
-Option B: Using Vite (if installed)
-If you're using Vite:
-- npm install
-- npm run dev
-
-NOTE: If you're using a .env file for your API key, create it in the root folder:
+3. Set Up Your Environment
+create a .env file in the root directory and add your Giphy API key:
 VITE_GIPHY_API_KEY=your_api_key_here
+Make sure there are no quotes and no spaces around the = sign.
+
+4. Install Dependencies and Start the Project
+bash
+- npm install # Install all required packages
+- npm run dev # Start the Vite development server
+
+Your app will be available at:
+http://Localhost:5173
+NOTE: Do not open index.html directly in browser - Vite handles module loading and hot reloading for development.
 
 ---
 

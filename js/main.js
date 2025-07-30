@@ -118,7 +118,7 @@ function displayGifs(gifs) {
 
             //Create image element
             const img = document.createElement('img');
-            img.src = gif.images.fixed_height.url; // Get gif URL from API response
+            img.src = gif.images.fixed_width.url; // Get gif URL from API response
             img.alt = gif.title || 'GIF';
 
             //Create favorite button

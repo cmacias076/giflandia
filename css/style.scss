@@ -20,8 +20,10 @@ $body-font: Arial, sans-serif;
 //Global styles
 
 * {
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     box-sizing: border-box;
 }
 
@@ -30,15 +32,15 @@ body {
     font-family: $body-font;
     background-color: $bg-color;
     background-image:url('/images/new-giflandia-background.png'),
-        linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85));
+        linear-gradient(rgba(50, 3, 50, 0.85), rgba(50, 3, 50, 0.85)); 
     background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
     background-blend-mode: soft-light;
     color: $text-color;
-    padding: 1rem;
+    padding: 0;
+    overflow-x: hidden;
 }
-
 
 //Header Layout
 
@@ -55,10 +57,11 @@ body {
                 rgba($accent-pink, 0.15),
                 rgba($accent-purple, 0.1)
             );
-    border: 1px solid rgba($accent-pink, 0.2);
+    border: 2px solid $accent-turquoise;
     box-shadow: 
-            0 0 12px rgba($accent-pink, 0.2),
-            inset 0 0 6px rgba($accent-purple, 0.1);
+        0 0 10px $accent-pink,
+        inset 0 0 10px $accent-purple;
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(6px);
 }
 
@@ -122,10 +125,10 @@ h2 {
         flex-wrap: wrap;
         gap: 2rem;
         padding: 1rem;
-       background: rgba(24, 172, 180, 0.1);
-    border-radius: 12px;
-    border: 2px solid $accent-purple;
-    box-shadow: 
+        background: rgba(24, 172, 180, 0.1);
+        border-radius: 12px;
+        border: 2px solid $accent-purple;
+        box-shadow: 
         0 0 30px 6px rgba($accent-yellow, 0.15),
         inset 0 0 12px $highlight-color;
     }
@@ -157,11 +160,11 @@ h2 {
 }
 
 #search-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    width: 100%;
 }
 
 #search-form {
@@ -218,49 +221,55 @@ h2 {
     }
 
  
+#results {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}   
+     
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // fixed 3 columns
-  aspect-ratio: 1 / 1;
+  display: grid;               
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 1rem;
-  width:100%;
-  padding: 1rem;
-  box-sizing: border-box;
+  max-width: 1200px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 600px;
+  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  border: 2px solid $accent-turquoise;
-  box-shadow:
+  border: 3px solid $accent-turquoise;
+  box-shadow: 
         0 0 10px $accent-pink,
         inset 0 0 10px $accent-purple;
-}
 
- .grid-item {
+  &:hover {
+    box-shadow: 0 8px 16px $accent-turquoise, 
+                0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .grid-item {
+    aspect-ratio: 1 / 1;
     position: relative;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    
-    &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px $accent-turquoise, 
-                    0 4px 6px rgba(0, 0, 0, 0.2);
-    }
- }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
 
- .gif-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
+    .gif-container {
+        width: 90%;
+        height: 90%;
+        position: relative;
     }
-   
-
- .gif-container img {
+  }
+  
+   .grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+  }
  }
 
  
@@ -334,19 +343,43 @@ h2 {
             width: 100%;
         }
     }
-   
+    
     .grid {
         grid-template-columns: 1fr;
-        justify-items: center;
-        padding: 0.5rem;
+        grid-auto-rows: auto;
+        aspect-ratio: unset;
+        min-height: auto;
     }
 
-    .grid-item img {
+    .grid-item {
+        aspect-ratio: 1 / 1;
+        padding: 0.5rem;
+    
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    
+    .gif-container {
+        position: relative;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
+
+    .gif-container img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
     .fav-btn {
         bottom: 6px;
         right: 6px;
     }
-}
+    }
