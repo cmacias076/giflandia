@@ -71,7 +71,7 @@ bash
 
 Your app will be available at:
 http://Localhost:5173
-NOTE: Do not open index.html directly in browser - Vite handles module loading and hot reloading for development.
+**IMPORTANT** Do not open `index.html` directly in browser - Vite handles module loading and hot reloading for development.
 
 ---
 
